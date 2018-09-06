@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns="/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="/">
+  
+  <wsdl:message name="RadiusParam">
+    <wsdl:part name="Radius" type="xsd:float"/>
+  </wsdl:message>
+  <wsdl:message name="DiameterParam">
+    <wsdl:part name="Diameter" type="xsd:float"/>
+  </wsdl:message>
+  <wsdl:message name="AreaCircleParam">
+    <wsdl:part name="Area_of_circle" type="xsd:float"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="AreaCircleMethod">
+    <wsdl:operation name="getAreaCircleRadius">
+      <wsdl:input message="RadiusParam"/>
+      <wsdl:output message="RadiusParam"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAreaCircleDiameter">
+      <wsdl:input message="DiameterParam"/>
+      <wsdl:output message="DiameterParam"/>
+    </wsdl:operation>
+    <wsdl:operation name="getRadiusCircle">
+      <wsdl:input message="AreaCircleParam"/>
+      <wsdl:output message="AreaCircleParam"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDiameterCircle">
+      <wsdl:input message="AreaCircleParam"/>
+      <wsdl:output message="AreaCircleParam"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  <wsdl:binding name="AreaCircleBinding" type="AreaCircleMethod">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAreaCircleRadius">
+      <soap:operation soapAction="/AreaCircle"/>
+      <wsdl:input>
+        <soap:body namespace="/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body namespace="/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAreaCircleDiameter">
+      <soap:operation soapAction="/AreaCircle"/>
+      <wsdl:input>
+        <soap:body namespace="/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body namespace="/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRadiusCircle">
+      <soap:operation soapAction="/AreaCircle"/>
+      <wsdl:input>
+        <soap:body namespace="/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body namespace="/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDiameterCircle">
+      <soap:operation soapAction="/AreaCircle"/>
+      <wsdl:input>
+        <soap:body namespace="/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body namespace="/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  <wsdl:service name="AreaCircle">
+    <wsdl:port binding="AreaCircleBinding" name="AreaCircleEndpoint">
+      <soap:address location="http://goranciganovic.com/webservices/soap/area_circle/server.php"/>
+    </wsdl:port>
+  </wsdl:service>
+  
+</wsdl:definitions>
+
